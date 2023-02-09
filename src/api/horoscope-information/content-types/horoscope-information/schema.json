@@ -1,0 +1,173 @@
+{
+  "kind": "collectionType",
+  "collectionName": "horoscope_informations",
+  "info": {
+    "singularName": "horoscope-information",
+    "pluralName": "horoscope-informations",
+    "displayName": "Horoscope _Information",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "zodiac_sign": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Aries",
+        "Taurus",
+        "Gemini",
+        "Cancer",
+        "Leo",
+        "Virgo",
+        "Libra",
+        "Scorpius",
+        "Sagittarius",
+        "Capricorn",
+        "Aquarius",
+        "Pisces "
+      ],
+      "required": true
+    },
+    "tamil_year": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "required": true
+    },
+    "tamil_month": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "udayati_nazhikai": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "day": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday "
+      ],
+      "required": true
+    },
+    "birth_time": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "time",
+      "required": true,
+      "default": "00:00"
+    },
+    "star_foot": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "One",
+        "Two",
+        "Three"
+      ],
+      "required": true
+    },
+    "ascendant": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Aries Ascendant "
+      ],
+      "required": true
+    },
+    "birrthplace": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "presence_direction": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "horoscope_ocument": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "family_members": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::family-member.family-member",
+      "inversedBy": "horoscope_informations"
+    },
+    "parent_informations": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::parent-information.parent-information",
+      "inversedBy": "horoscope_informations"
+    },
+    "user_profiles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::profile.profile",
+      "inversedBy": "horoscope_informations"
+    }
+  }
+}

@@ -1,10 +1,11 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "pricing_plans",
   "info": {
     "singularName": "pricing-plan",
     "pluralName": "pricing-plans",
-    "displayName": "Pricing_Plan"
+    "displayName": "Pricing_Plan",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,7 +16,7 @@
     }
   },
   "attributes": {
-    "pricing_label": {
+    "Pricing_Label": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -24,7 +25,7 @@
       "type": "string",
       "required": true
     },
-    "pricing_plan1": {
+    "Pricing_Plan1": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -33,7 +34,7 @@
       "type": "integer",
       "required": true
     },
-    "pricing_plan2": {
+    "Pricing_Plan2": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -41,6 +42,59 @@
       },
       "type": "integer",
       "required": true
+    },
+    "pricing_plan1_point1": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "pricing_plan1_point2": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "pricing_plan1_point3": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "pricing_plan2_point1": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "pricing_plan2_point2": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "pricing_plan2_point3": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

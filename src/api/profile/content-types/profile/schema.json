@@ -36,7 +36,7 @@
       "required": true,
       "unique": false
     },
-    "emai": {
+    "email": {
       "pluginOptions": {
         "i18n": {
           "localized": true

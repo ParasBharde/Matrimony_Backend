@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-13T12:15:49.667Z"
+    "x-generation-date": "2023-02-13T18:56:05.521Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -18395,7 +18395,7 @@
         "required": [
           "first_name",
           "last_name",
-          "emai",
+          "email",
           "Chooese_groom_bride",
           "Choose_veg_nonveg",
           "date_of_birth",
@@ -18449,7 +18449,7 @@
           "last_name": {
             "type": "string"
           },
-          "emai": {
+          "email": {
             "type": "string",
             "format": "email"
           },
@@ -18723,7 +18723,7 @@
             "required": [
               "first_name",
               "last_name",
-              "emai",
+              "email",
               "Chooese_groom_bride",
               "Choose_veg_nonveg",
               "date_of_birth",
@@ -18776,7 +18776,7 @@
               "last_name": {
                 "type": "string"
               },
-              "emai": {
+              "email": {
                 "type": "string",
                 "format": "email"
               },
@@ -19054,7 +19054,7 @@
           "last_name": {
             "type": "string"
           },
-          "emai": {
+          "email": {
             "type": "string",
             "format": "email"
           },
@@ -21102,7 +21102,7 @@
               "last_name": {
                 "type": "string"
               },
-              "emai": {
+              "email": {
                 "type": "string",
                 "format": "email"
               },
@@ -23154,7 +23154,7 @@
               "last_name": {
                 "type": "string"
               },
-              "emai": {
+              "email": {
                 "type": "string",
                 "format": "email"
               },
@@ -25237,7 +25237,7 @@
               "last_name": {
                 "type": "string"
               },
-              "emai": {
+              "email": {
                 "type": "string",
                 "format": "email"
               },
@@ -27289,7 +27289,7 @@
               "last_name": {
                 "type": "string"
               },
-              "emai": {
+              "email": {
                 "type": "string",
                 "format": "email"
               },

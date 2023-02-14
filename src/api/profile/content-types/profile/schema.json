@@ -179,8 +179,7 @@
         }
       },
       "type": "biginteger",
-      "required": true,
-      "min": "10"
+      "required": true
     },
     "caste": {
       "pluginOptions": {
@@ -275,7 +274,7 @@
       "type": "string",
       "required": true
     },
-    "contact_number": {
+    "parents_contact_number": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -283,8 +282,7 @@
       },
       "type": "biginteger",
       "required": true,
-      "unique": true,
-      "min": "10"
+      "unique": true
     },
     "address": {
       "pluginOptions": {
@@ -510,7 +508,8 @@
         "Capricornus",
         "Aquarius",
         "Pisces "
-      ]
+      ],
+      "required": true
     },
     "birthplace": {
       "pluginOptions": {

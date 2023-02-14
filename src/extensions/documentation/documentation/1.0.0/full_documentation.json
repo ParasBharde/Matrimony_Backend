@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-13T18:56:05.521Z"
+    "x-generation-date": "2023-02-14T07:39:12.624Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -18417,7 +18417,7 @@
           "mother_native",
           "father_profession",
           "mother_profession",
-          "contact_number",
+          "parents_contact_number",
           "address",
           "Father",
           "Mother",
@@ -18436,6 +18436,7 @@
           "day",
           "birth_time",
           "star_foot",
+          "ascendant",
           "birthplace",
           "presence_of_natal_direction",
           "horoscope_document",
@@ -18563,7 +18564,7 @@
           "mother_profession": {
             "type": "string"
           },
-          "contact_number": {
+          "parents_contact_number": {
             "type": "string",
             "pattern": "^\\d*$",
             "example": "123456789"
@@ -18745,7 +18746,7 @@
               "mother_native",
               "father_profession",
               "mother_profession",
-              "contact_number",
+              "parents_contact_number",
               "address",
               "Father",
               "Mother",
@@ -18764,6 +18765,7 @@
               "day",
               "birth_time",
               "star_foot",
+              "ascendant",
               "birthplace",
               "presence_of_natal_direction",
               "horoscope_document"
@@ -18890,7 +18892,7 @@
               "mother_profession": {
                 "type": "string"
               },
-              "contact_number": {
+              "parents_contact_number": {
                 "type": "string",
                 "pattern": "^\\d*$",
                 "example": "123456789"
@@ -19778,7 +19780,7 @@
           "mother_profession": {
             "type": "string"
           },
-          "contact_number": {
+          "parents_contact_number": {
             "type": "string",
             "pattern": "^\\d*$",
             "example": "123456789"
@@ -21826,7 +21828,7 @@
               "mother_profession": {
                 "type": "string"
               },
-              "contact_number": {
+              "parents_contact_number": {
                 "type": "string",
                 "pattern": "^\\d*$",
                 "example": "123456789"
@@ -23878,7 +23880,7 @@
               "mother_profession": {
                 "type": "string"
               },
-              "contact_number": {
+              "parents_contact_number": {
                 "type": "string",
                 "pattern": "^\\d*$",
                 "example": "123456789"
@@ -25961,7 +25963,7 @@
               "mother_profession": {
                 "type": "string"
               },
-              "contact_number": {
+              "parents_contact_number": {
                 "type": "string",
                 "pattern": "^\\d*$",
                 "example": "123456789"
@@ -28013,7 +28015,7 @@
               "mother_profession": {
                 "type": "string"
               },
-              "contact_number": {
+              "parents_contact_number": {
                 "type": "string",
                 "pattern": "^\\d*$",
                 "example": "123456789"

@@ -565,6 +565,12 @@
       },
       "type": "password",
       "required": true
+    },
+    "liked_profiles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::liked-profile.liked-profile",
+      "mappedBy": "user_profiles"
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-02-14T18:39:59.956Z"
+    "x-generation-date": "2023-02-16T08:32:40.556Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -26541,7 +26541,6 @@
         "required": [
           "first_name",
           "last_name",
-          "email",
           "Chooese_groom_bride",
           "Choose_veg_nonveg",
           "date_of_birth",
@@ -26586,6 +26585,9 @@
           "birthplace",
           "presence_of_natal_direction",
           "horoscope_document",
+          "username",
+          "email",
+          "password",
           "locale"
         ],
         "type": "object",
@@ -26595,10 +26597,6 @@
           },
           "last_name": {
             "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
           },
           "Chooese_groom_bride": {
             "type": "string",
@@ -26855,6 +26853,18 @@
             ],
             "example": "string or id"
           },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "password": {
+            "type": "string",
+            "format": "password",
+            "example": "*******"
+          },
           "locale": {
             "type": "string"
           }
@@ -26870,7 +26880,6 @@
             "required": [
               "first_name",
               "last_name",
-              "email",
               "Chooese_groom_bride",
               "Choose_veg_nonveg",
               "date_of_birth",
@@ -26914,7 +26923,10 @@
               "ascendant",
               "birthplace",
               "presence_of_natal_direction",
-              "horoscope_document"
+              "horoscope_document",
+              "username",
+              "email",
+              "password"
             ],
             "type": "object",
             "properties": {
@@ -26923,10 +26935,6 @@
               },
               "last_name": {
                 "type": "string"
-              },
-              "email": {
-                "type": "string",
-                "format": "email"
               },
               "Chooese_groom_bride": {
                 "type": "string",
@@ -27183,6 +27191,18 @@
                 ],
                 "example": "string or id"
               },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "password": {
+                "type": "string",
+                "format": "password",
+                "example": "*******"
+              },
               "locale": {
                 "type": "string"
               }
@@ -27201,10 +27221,6 @@
           },
           "last_name": {
             "type": "string"
-          },
-          "email": {
-            "type": "string",
-            "format": "email"
           },
           "Chooese_groom_bride": {
             "type": "string",
@@ -29175,6 +29191,13 @@
               }
             }
           },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -29249,10 +29272,6 @@
               },
               "last_name": {
                 "type": "string"
-              },
-              "email": {
-                "type": "string",
-                "format": "email"
               },
               "Chooese_groom_bride": {
                 "type": "string",
@@ -31222,6 +31241,13 @@
                     }
                   }
                 }
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
               },
               "createdAt": {
                 "type": "string",
@@ -31302,10 +31328,6 @@
               "last_name": {
                 "type": "string"
               },
-              "email": {
-                "type": "string",
-                "format": "email"
-              },
               "Chooese_groom_bride": {
                 "type": "string",
                 "enum": [
@@ -33274,6 +33296,13 @@
                     }
                   }
                 }
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
               },
               "createdAt": {
                 "type": "string",
@@ -33385,10 +33414,6 @@
               "last_name": {
                 "type": "string"
               },
-              "email": {
-                "type": "string",
-                "format": "email"
-              },
               "Chooese_groom_bride": {
                 "type": "string",
                 "enum": [
@@ -35357,6 +35382,13 @@
                     }
                   }
                 }
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
               },
               "createdAt": {
                 "type": "string",
@@ -35437,10 +35469,6 @@
               "last_name": {
                 "type": "string"
               },
-              "email": {
-                "type": "string",
-                "format": "email"
-              },
               "Chooese_groom_bride": {
                 "type": "string",
                 "enum": [
@@ -37409,6 +37437,13 @@
                     }
                   }
                 }
+              },
+              "username": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
               },
               "createdAt": {
                 "type": "string",

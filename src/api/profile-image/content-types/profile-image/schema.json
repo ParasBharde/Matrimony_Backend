@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profile_images",
+  "info": {
+    "singularName": "profile-image",
+    "pluralName": "profile-images",
+    "displayName": "Profile_Image"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "file_upload": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "image_id": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "unique": true,
+      "required": true
+    }
+  }
+}

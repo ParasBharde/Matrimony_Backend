@@ -4,7 +4,8 @@
   "info": {
     "singularName": "profile-image",
     "pluralName": "profile-images",
-    "displayName": "Profile_Image"
+    "displayName": "Profile_Image",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,17 +17,17 @@
   },
   "attributes": {
     "file_upload": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "required": true
+      }
     },
     "image_id": {
       "pluginOptions": {
@@ -34,7 +35,7 @@
           "localized": true
         }
       },
-      "type": "biginteger",
+      "type": "integer",
       "unique": true,
       "required": true
     }

@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_logins",
+  "info": {
+    "singularName": "user-login",
+    "pluralName": "user-logins",
+    "displayName": "User_Login"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "email": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "password",
+      "required": true
+    }
+  }
+}

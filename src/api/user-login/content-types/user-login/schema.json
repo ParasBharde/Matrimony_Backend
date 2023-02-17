@@ -4,7 +4,8 @@
   "info": {
     "singularName": "user-login",
     "pluralName": "user-logins",
-    "displayName": "User_Login"
+    "displayName": "User_Login",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -33,6 +34,11 @@
       },
       "type": "password",
       "required": true
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile"
     }
   }
 }

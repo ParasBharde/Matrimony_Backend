@@ -38,6 +38,11 @@
       "type": "integer",
       "unique": true,
       "required": true
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile"
     }
   }
 }

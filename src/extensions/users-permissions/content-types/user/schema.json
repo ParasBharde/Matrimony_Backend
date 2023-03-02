@@ -68,6 +68,12 @@
       "relation": "oneToOne",
       "target": "api::profile.profile",
       "inversedBy": "user"
+    },
+    "liked_profiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::liked-profile.liked-profile",
+      "mappedBy": "user"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "liked-profile",
     "pluralName": "liked-profiles",
-    "displayName": "Liked_Profile"
+    "displayName": "Liked_Profile",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,10 +16,10 @@
     }
   },
   "attributes": {
-    "user_profiles": {
+    "user": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::profile.profile",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
       "inversedBy": "liked_profiles"
     }
   }

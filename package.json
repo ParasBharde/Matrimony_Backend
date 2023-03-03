@@ -13,9 +13,11 @@
     "@strapi/plugin-documentation": "^4.6.1",
     "@strapi/plugin-i18n": "4.6.0",
     "@strapi/plugin-users-permissions": "4.6.0",
+    "@strapi/provider-email-sendgrid": "^4.7.1",
     "@strapi/strapi": "4.6.0",
     "better-sqlite3": "7.4.6",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "strapi-provider-email-sendinblue": "^4.0.0"
   },
   "author": {
     "name": "A Strapi developer"

@@ -94,6 +94,18 @@
       "type": "email",
       "required": true,
       "unique": true
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "subscriptions_detail"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile",
+      "inversedBy": "subscriptions_detail"
     }
   }
 }

@@ -74,6 +74,18 @@
       "relation": "oneToMany",
       "target": "api::liked-profile.liked-profile",
       "mappedBy": "user"
+    },
+    "download_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::download-profile.download-profile",
+      "mappedBy": "users_permissions_user"
+    },
+    "subscriptions_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subscriptions-details.subscriptions-details",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

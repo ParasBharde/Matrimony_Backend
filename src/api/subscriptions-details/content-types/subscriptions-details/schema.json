@@ -44,8 +44,7 @@
       },
       "type": "boolean",
       "default": false,
-      "required": true,
-      "private": true
+      "required": true
     },
     "txnMessage": {
       "pluginOptions": {

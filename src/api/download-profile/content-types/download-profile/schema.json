@@ -22,11 +22,10 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "download_profiles"
     },
-    "user_profile": {
+    "user_profiles": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::profile.profile",
-      "inversedBy": "download_profile"
+      "relation": "oneToMany",
+      "target": "api::profile.profile"
     }
   }
 }

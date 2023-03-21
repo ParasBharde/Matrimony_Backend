@@ -18,9 +18,9 @@
   "attributes": {
     "users_permissions_user": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
-      "inversedBy": "download_profile"
+      "inversedBy": "download_profiles"
     },
     "user_profiles": {
       "type": "relation",

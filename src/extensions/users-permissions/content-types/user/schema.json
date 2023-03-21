@@ -81,9 +81,9 @@
       "target": "api::subscriptions-details.subscriptions-details",
       "mappedBy": "users_permissions_user"
     },
-    "download_profile": {
+    "download_profiles": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
     }

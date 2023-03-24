@@ -577,12 +577,6 @@
       "relation": "oneToOne",
       "target": "api::subscriptions-details.subscriptions-details",
       "mappedBy": "user_profile"
-    },
-    "liked_profiles": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::liked-profile.liked-profile",
-      "mappedBy": "user_profile"
     }
   }
 }

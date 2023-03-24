@@ -18,15 +18,14 @@
   "attributes": {
     "users_permissions_user": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "liked_profile"
-    },
-    "user_profile": {
-      "type": "relation",
       "relation": "manyToOne",
-      "target": "api::profile.profile",
+      "target": "plugin::users-permissions.user",
       "inversedBy": "liked_profiles"
+    },
+    "user_profiles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::profile.profile"
     }
   }
 }

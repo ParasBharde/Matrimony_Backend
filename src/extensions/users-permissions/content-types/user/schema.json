@@ -85,7 +85,7 @@
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::liked-profile.liked-profile",
-      "mappedBy": "users_permissions_users"
+      "mappedBy": "user_permissions_users"
     }
   }
 }

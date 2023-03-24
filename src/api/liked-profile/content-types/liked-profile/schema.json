@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "users_permissions_users": {
+    "user_permissions_users": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "plugin::users-permissions.user",

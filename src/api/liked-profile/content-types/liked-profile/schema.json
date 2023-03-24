@@ -16,16 +16,17 @@
     }
   },
   "attributes": {
-    "users_permissions_users": {
+    "users_permissions_user": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "plugin::users-permissions.user"
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "liked_profile"
     },
     "user_profiles": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "oneToMany",
       "target": "api::profile.profile",
-      "inversedBy": "liked_profiles"
+      "mappedBy": "liked_profile"
     }
   }
 }

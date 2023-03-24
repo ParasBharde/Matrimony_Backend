@@ -80,6 +80,12 @@
       "relation": "oneToMany",
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
+    },
+    "liked_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::liked-profile.liked-profile",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

@@ -578,11 +578,11 @@
       "target": "api::subscriptions-details.subscriptions-details",
       "mappedBy": "user_profile"
     },
-    "liked_profiles": {
+    "liked_profile": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToOne",
       "target": "api::liked-profile.liked-profile",
-      "mappedBy": "user_profiles"
+      "inversedBy": "user_profiles"
     }
   }
 }

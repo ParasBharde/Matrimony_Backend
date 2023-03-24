@@ -81,9 +81,9 @@
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
     },
-    "liked_profiles": {
+    "liked_profile": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::liked-profile.liked-profile",
       "mappedBy": "users_permissions_user"
     }

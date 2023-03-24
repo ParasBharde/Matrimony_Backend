@@ -572,12 +572,6 @@
       "target": "plugin::users-permissions.user",
       "mappedBy": "user_profile"
     },
-    "liked_profile": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::liked-profile.liked-profile",
-      "mappedBy": "user_profile"
-    },
     "subscriptions_detail": {
       "type": "relation",
       "relation": "oneToOne",

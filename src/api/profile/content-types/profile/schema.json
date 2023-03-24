@@ -578,9 +578,9 @@
       "target": "api::subscriptions-details.subscriptions-details",
       "mappedBy": "user_profile"
     },
-    "liked_profile": {
+    "liked_profiles": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::liked-profile.liked-profile",
       "inversedBy": "user_profiles"
     }

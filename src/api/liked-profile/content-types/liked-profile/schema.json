@@ -22,10 +22,11 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "liked_profiles"
     },
-    "user_profiles": {
+    "user_profile": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::profile.profile"
+      "relation": "manyToOne",
+      "target": "api::profile.profile",
+      "inversedBy": "liked_profiles"
     }
   }
 }

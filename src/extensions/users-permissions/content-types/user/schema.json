@@ -80,6 +80,11 @@
       "relation": "oneToMany",
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
+    },
+    "isAdmin": {
+      "type": "boolean",
+      "required": true,
+      "private": true
     }
   }
 }

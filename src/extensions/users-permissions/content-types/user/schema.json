@@ -83,8 +83,7 @@
     },
     "isAdmin": {
       "type": "boolean",
-      "required": true,
-      "private": true
+      "required": true
     }
   }
 }

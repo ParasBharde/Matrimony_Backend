@@ -81,10 +81,11 @@
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
     },
-    "isAdmin": {
+    "isAdmin":{
       "type": "boolean",
-      "required": true,
-      "default": false
+      "default":false,
+      "configurable": false
+
     }
   }
 }

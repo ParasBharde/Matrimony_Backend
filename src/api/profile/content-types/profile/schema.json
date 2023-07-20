@@ -272,7 +272,7 @@
       },
       "type": "biginteger",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "address": {
       "pluginOptions": {

@@ -19,14 +19,12 @@
     "users_permissions_user": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "subscriptions_detail"
+      "target": "plugin::users-permissions.user"
     },
     "user_profile": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::profile.profile",
-      "inversedBy": "subscriptions_detail"
+      "target": "api::profile.profile"
     },
     "start_date": {
       "pluginOptions": {
@@ -63,8 +61,7 @@
     "card_detail": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::card-details.card-details",
-      "inversedBy": "subscriptions_detail"
+      "target": "api::card-details.card-details"
     }
   }
 }

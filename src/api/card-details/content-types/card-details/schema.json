@@ -36,18 +36,11 @@
     "user_profile": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::profile.profile",
-      "mappedBy": "card_detail"
+      "target": "api::profile.profile"
     },
     "expiry_date": {
       "type": "string",
       "required": true
-    },
-    "subscriptions_detail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::subscriptions-details.subscriptions-details",
-      "mappedBy": "card_detail"
     }
   }
 }

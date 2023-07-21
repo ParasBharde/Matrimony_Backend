@@ -74,12 +74,6 @@
       "target": "api::profile.profile",
       "inversedBy": "user"
     },
-    "subscriptions_detail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::subscriptions-details.subscriptions-details",
-      "mappedBy": "users_permissions_user"
-    },
     "download_profiles": {
       "type": "relation",
       "relation": "oneToMany",

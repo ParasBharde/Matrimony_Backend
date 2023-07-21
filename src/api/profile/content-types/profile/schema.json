@@ -571,18 +571,6 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "mappedBy": "user_profile"
-    },
-    "subscriptions_detail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::subscriptions-details.subscriptions-details",
-      "mappedBy": "user_profile"
-    },
-    "card_detail": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::card-details.card-details",
-      "inversedBy": "user_profile"
     }
   }
 }

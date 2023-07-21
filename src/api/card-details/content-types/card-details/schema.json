@@ -29,9 +29,8 @@
     },
     "user": {
       "type": "relation",
-      "relation": "manyToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "card_details"
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
     },
     "user_profile": {
       "type": "relation",

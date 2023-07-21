@@ -79,12 +79,6 @@
       "relation": "oneToMany",
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
-    },
-    "card_details": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::card-details.card-details",
-      "mappedBy": "user"
     }
   }
 }

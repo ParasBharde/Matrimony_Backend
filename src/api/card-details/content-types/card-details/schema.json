@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_detail",
+  "info": {
+    "singularName": "card-details",
+    "pluralName": "card-detail",
+    "displayName": "Card_Details",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "card_number": {
+      "type": "biginteger",
+      "required": true
+    },
+    "secure_code": {
+      "type": "biginteger",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "card_details"
+    },
+    "user_profile": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile",
+      "mappedBy": "card_detail"
+    },
+    "expiry_date": {
+      "type": "string",
+      "required": true
+    },
+    "subscriptions_detail": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::subscriptions-details.subscriptions-details",
+      "mappedBy": "card_detail"
+    }
+  }
+}

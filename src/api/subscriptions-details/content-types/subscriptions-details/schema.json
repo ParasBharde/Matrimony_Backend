@@ -32,7 +32,7 @@
           "localized": true
         }
       },
-      "type": "datetime",
+      "type": "date",
       "required": true
     },
     "end_date": {
@@ -41,7 +41,7 @@
           "localized": true
         }
       },
-      "type": "datetime",
+      "type": "date",
       "required": true
     },
     "status": {

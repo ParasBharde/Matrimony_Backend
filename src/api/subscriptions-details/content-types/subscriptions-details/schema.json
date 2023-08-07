@@ -63,7 +63,8 @@
     "card_detail": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::card-details.card-details"
+      "target": "api::card-details.card-details",
+      "required": false
     }
   }
 }

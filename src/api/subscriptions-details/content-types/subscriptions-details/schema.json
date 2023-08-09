@@ -57,7 +57,7 @@
         "active",
         "expired "
       ],
-      "default": "expired ",
+      "default": "expired",
       "required": true
     },
     "card_detail": {

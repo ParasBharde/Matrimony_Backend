@@ -80,11 +80,11 @@
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
     },
-    "subscriptions_detail": {
+    "order_history": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::subscriptions-details.subscriptions-details",
-      "inversedBy": "users_permissions_user"
+      "target": "api::order-history.order-history",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

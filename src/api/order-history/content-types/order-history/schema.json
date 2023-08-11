@@ -1,0 +1,67 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_histories",
+  "info": {
+    "singularName": "order-history",
+    "pluralName": "order-histories",
+    "displayName": "Order_History"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "paying_person_name": {
+      "type": "string",
+      "required": true
+    },
+    "reference_id": {
+      "type": "string",
+      "required": true
+    },
+    "payment_ss": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": false
+    },
+    "subscription_start_date": {
+      "type": "date",
+      "required": true,
+      "default": "2023-08-11"
+    },
+    "subscription_end_date": {
+      "type": "date",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "Pending",
+        "Active",
+        "Expired"
+      ],
+      "default": "Pending"
+    },
+    "purchase_plan": {
+      "type": "enumeration",
+      "enum": [
+        "None",
+        "Basic Plan",
+        "Super Plan",
+        "Master Plan"
+      ],
+      "required": true,
+      "default": "None"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "order_history"
+    }
+  }
+}

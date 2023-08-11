@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "utils",
+  "info": {
+    "singularName": "util",
+    "pluralName": "utils",
+    "displayName": "Util"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "util": {
+      "type": "string"
+    }
+  }
+}

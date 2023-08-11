@@ -61,7 +61,8 @@
     },
     "member_display_limit": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "default": 0
     },
     "price": {
       "type": "decimal",

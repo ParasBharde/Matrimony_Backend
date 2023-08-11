@@ -79,12 +79,6 @@
       "relation": "oneToMany",
       "target": "api::download-profile.download-profile",
       "mappedBy": "users_permissions_user"
-    },
-    "order_history": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::order-history.order-history",
-      "mappedBy": "users_permissions_user"
     }
   }
 }

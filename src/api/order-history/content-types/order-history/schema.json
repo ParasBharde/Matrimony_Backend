@@ -4,64 +4,86 @@
   "info": {
     "singularName": "order-history",
     "pluralName": "order-histories",
-    "displayName": "Order_History"
+    "displayName": "Order History",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "paying_person_name": {
+    "reference_id_or_utr_id": {
       "type": "string",
       "required": true
     },
-    "reference_id": {
-      "type": "string",
-      "required": true
-    },
-    "payment_ss": {
+    "payment_proof": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": false
+      ]
     },
     "subscription_start_date": {
-      "type": "date",
-      "required": true,
-      "default": "2023-08-11"
+      "type": "datetime",
+      "required": true
     },
     "subscription_end_date": {
-      "type": "date",
-      "required": true
+      "type": "datetime",
+      "required": false
     },
     "status": {
       "type": "enumeration",
       "enum": [
-        "Pending",
-        "Active",
-        "Expired"
+        "pending",
+        "active",
+        "expired"
       ],
-      "default": "Pending"
+      "default": "pending",
+      "required": true
     },
     "purchase_plan": {
       "type": "enumeration",
       "enum": [
-        "None",
-        "Basic Plan",
-        "Super Plan",
-        "Master Plan"
+        "basic",
+        "super",
+        "master"
       ],
       "required": true,
-      "default": "None"
+      "default": "basic"
     },
-    "users_permissions_user": {
+    "user_id": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "order_history"
+      "target": "api::profile.profile",
+      "inversedBy": "plan_history"
+    },
+    "member_display_limit": {
+      "type": "integer",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "member_viewed": {
+      "type": "integer",
+      "default": 0
+    },
+    "marriage_fixed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "marriage_fix_status": {
+      "type": "enumeration",
+      "enum": [
+        "applicable",
+        "not_applicable"
+      ],
+      "default": "not_applicable",
+      "required": true
     }
   }
 }

@@ -80,6 +80,9 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::profile.profile"
+    },
+    "paying_person_name": {
+      "type": "string"
     }
   }
 }

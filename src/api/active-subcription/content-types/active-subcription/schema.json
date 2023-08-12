@@ -1,0 +1,89 @@
+{
+  "kind": "singleType",
+  "collectionName": "active_subcriptions",
+  "info": {
+    "singularName": "active-subcription",
+    "pluralName": "active-subcriptions",
+    "displayName": "Active Subcription"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reference_id_or_utr_id": {
+      "type": "string",
+      "required": true
+    },
+    "payment_proof": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "subscription_start_date": {
+      "type": "datetime",
+      "required": true
+    },
+    "subscription_end_date": {
+      "type": "datetime",
+      "required": false
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "active",
+        "expired"
+      ],
+      "default": "pending",
+      "required": true
+    },
+    "purchase_plan": {
+      "type": "enumeration",
+      "enum": [
+        "basic",
+        "super",
+        "master"
+      ],
+      "required": true,
+      "default": "basic"
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::profile.profile",
+      "inversedBy": "order_histories"
+    },
+    "member_display_limit": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "member_viewed": {
+      "type": "integer",
+      "default": 0
+    },
+    "marriage_fixed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "marriage_fix_status": {
+      "type": "enumeration",
+      "enum": [
+        "applicable",
+        "not_applicable"
+      ],
+      "default": "not_applicable",
+      "required": true
+    }
+  }
+}

@@ -4,17 +4,6 @@ module.exports = {
   routes: [
     {
       method: 'POST',
-      path: '/plan/updateSubscription',
-      handler: 'order-controller.updateSubscription',
-      config: {
-        find: {
-          auth: true,
-        }
-      }
-    },
-
-    {
-      method: 'POST',
       path: '/plan/updateStatusOfMarriageFix',
       handler: 'order-controller.updateStatusOfMarriageFix',
       config: {

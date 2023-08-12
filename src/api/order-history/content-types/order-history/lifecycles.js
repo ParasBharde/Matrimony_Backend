@@ -58,22 +58,17 @@ module.exports = {
         var { data, where, select, populate } = event.params;
         const ctx = strapi.requestContext.get();
         //get the latest order
-        const getLastestOrder = await strapi.query("api::order-history.order-history").findOne({where: {id: event.result.id}, populate:["user_id"]})
-        getLastestOrder.order_id = getLastestOrder.id;
+        const getLatestOrder = await strapi.query("api::order-history.order-history").findOne({where: {id: event.result.id}, populate:["user_id"]})
+        getLatestOrder.order_id = getLatestOrder.id;
         //get the active subcription
-        const getActiveSubcription = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {user_id: getLastestOrder.user_id.id}})
+        const getActiveSubcription = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {user_id: getLatestOrder.user_id.id}})
         //if master plan then directly take it as current subcription
-        if(getLastestOrder && getLastestOrder.purchase_plan == "master") {
-            const latestOrderId = getLastestOrder.id;
-            delete getLastestOrder.id;
+        if(getLatestOrder && getLatestOrder.purchase_plan == "master") {
+            const latestOrderId = getLatestOrder.id;
+            delete getLatestOrder.id;
             if(getActiveSubcription) {
-                const member_display_limit = getLastestOrder.member_display_limit
-                delete getLastestOrder.member_display_limit
                 await strapi.entityService.update('api::user-active-plan.user-active-plan', getActiveSubcription.id, {
-                    data: {
-                        ...getLastestOrder,
-                        member_display_limit: getActiveSubcription.member_display_limit + member_display_limit,
-                    }
+                    data: getLatestOrder
                 })
                 await strapi.entityService.update('api::order-history.order-history', latestOrderId, {
                     data: {
@@ -83,7 +78,7 @@ module.exports = {
             }
             else {
                 await strapi.entityService.create('api::user-active-plan.user-active-plan', {
-                    data: getLastestOrder
+                    data: getLatestOrder
                 })
                 await strapi.entityService.update('api::order-history.order-history', latestOrderId, {
                     data: {
@@ -95,12 +90,12 @@ module.exports = {
 
         //if basic or super plan then check if any active subcription exists
         //if exist then take increase the end date of active subcription till the next end date of new subcription
-        else if(getLastestOrder && (getLastestOrder.purchase_plan == "basic")) {
-            const latestOrderId = getLastestOrder.id;
-            delete getLastestOrder.id;
+        else if(getLatestOrder && (getLatestOrder.purchase_plan == "basic")) {
+            const latestOrderId = getLatestOrder.id;
+            delete getLatestOrder.id;
             const getActiveOrder = await strapi.query("api::order-history.order-history").findMany({
                 filters: {
-                    user_id: getLastestOrder.user_id.id,
+                    user_id: getLatestOrder.user_id.id,
                     purchase_plan: "basic",
                     status: "active"
                 },
@@ -115,15 +110,10 @@ module.exports = {
                         totalEndDate = calculateEndDate(totalEndDate, 24);
                     }
                 }
-                getLastestOrder.subscription_start_date = new Date(getActiveOrder[0].subscription_start_date);
-                getLastestOrder.subscription_end_date = new Date(totalEndDate);
-                const member_display_limit = getLastestOrder.member_display_limit
-                delete getLastestOrder.member_display_limit
+                getLatestOrder.subscription_start_date = new Date(getActiveOrder[0].subscription_start_date);
+                getLatestOrder.subscription_end_date = new Date(totalEndDate);
                 await strapi.entityService.update('api::user-active-plan.user-active-plan', getActiveSubcription.id, {
-                    data: {
-                        ...getLastestOrder,
-                        member_display_limit: getActiveSubcription.member_display_limit + member_display_limit,
-                    }
+                    data: getLatestOrder
                 })
                 await strapi.entityService.update('api::order-history.order-history', latestOrderId, {
                     data: {
@@ -133,7 +123,7 @@ module.exports = {
             }
             else {
                 await strapi.entityService.create('api::user-active-plan.user-active-plan', {
-                    data: getLastestOrder
+                    data: getLatestOrder
                 })
                 await strapi.entityService.update('api::order-history.order-history', latestOrderId, {
                     data: {
@@ -143,12 +133,12 @@ module.exports = {
             }
         }
         //for super plan
-        else if(getLastestOrder && (getLastestOrder.purchase_plan == "super")) {
-            const latestOrderId = getLastestOrder.id;
-            delete getLastestOrder.id;
+        else if(getLatestOrder && (getLatestOrder.purchase_plan == "super")) {
+            const latestOrderId = getLatestOrder.id;
+            delete getLatestOrder.id;
             const getActiveOrder = await strapi.query("api::order-history.order-history").findMany({
                 filters: {
-                    user_id: getLastestOrder.user_id.id,
+                    user_id: getLatestOrder.user_id.id,
                     purchase_plan: "super",
                     status: "active"
                 },
@@ -163,15 +153,10 @@ module.exports = {
                         totalEndDate = calculateEndDate(totalEndDate, 36);
                     }
                 }
-                getLastestOrder.subscription_start_date = new Date(getActiveOrder[0].subscription_start_date);
-                getLastestOrder.subscription_end_date = new Date(totalEndDate);
-                const member_display_limit = getLastestOrder.member_display_limit
-                delete getLastestOrder.member_display_limit
+                getLatestOrder.subscription_start_date = new Date(getActiveOrder[0].subscription_start_date);
+                getLatestOrder.subscription_end_date = new Date(totalEndDate);
                 await strapi.entityService.update('api::user-active-plan.user-active-plan', getActiveSubcription.id, {
-                    data: {
-                        ...getLastestOrder,
-                        member_display_limit: getActiveSubcription.member_display_limit + member_display_limit,
-                    }
+                    data: getLatestOrder
                 })
                 await strapi.entityService.update('api::order-history.order-history', latestOrderId, {
                     data: {
@@ -181,7 +166,7 @@ module.exports = {
             }
             else {
                 await strapi.entityService.create('api::user-active-plan.user-active-plan', {
-                    data: getLastestOrder
+                    data: getLatestOrder
                 })
                 await strapi.entityService.update('api::order-history.order-history', latestOrderId, {
                     data: {

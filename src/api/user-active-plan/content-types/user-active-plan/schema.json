@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_active_plans",
+  "info": {
+    "singularName": "user-active-plan",
+    "pluralName": "user-active-plans",
+    "displayName": "User Active Plan",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile"
+    },
+    "order_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order-history.order-history"
+    },
+    "subscription_start_date": {
+      "type": "datetime"
+    },
+    "subscription_end_date": {
+      "type": "datetime"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "active",
+        "expired"
+      ]
+    },
+    "purchase_plan": {
+      "type": "enumeration",
+      "enum": [
+        "basic",
+        "super",
+        "master"
+      ]
+    },
+    "member_display_limit": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "member_viewed": {
+      "type": "integer",
+      "default": 0
+    },
+    "marriage_fixed": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "marriage_fix_status": {
+      "type": "enumeration",
+      "enum": [
+        "applicable",
+        "not_applicable"
+      ],
+      "default": "not_applicable",
+      "required": true
+    }
+  }
+}

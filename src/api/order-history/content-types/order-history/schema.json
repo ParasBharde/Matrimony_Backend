@@ -53,12 +53,6 @@
       "required": true,
       "default": "basic"
     },
-    "user_id": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::profile.profile",
-      "inversedBy": "order_histories"
-    },
     "member_display_limit": {
       "type": "integer",
       "required": true,
@@ -67,10 +61,6 @@
     "price": {
       "type": "decimal",
       "required": true
-    },
-    "member_viewed": {
-      "type": "integer",
-      "default": 0
     },
     "marriage_fixed": {
       "type": "boolean",
@@ -85,6 +75,11 @@
       ],
       "default": "not_applicable",
       "required": true
+    },
+    "user_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::profile.profile"
     }
   }
 }

@@ -571,12 +571,6 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "mappedBy": "user_profile"
-    },
-    "order_histories": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::order-history.order-history",
-      "mappedBy": "user_id"
     }
   }
 }

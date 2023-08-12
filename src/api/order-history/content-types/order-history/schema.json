@@ -85,6 +85,10 @@
       ],
       "default": "not_applicable",
       "required": true
+    },
+    "paying_person_name": {
+      "type": "string",
+      "required": true
     }
   }
 }

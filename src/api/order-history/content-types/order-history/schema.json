@@ -55,9 +55,9 @@
     },
     "user_id": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::profile.profile",
-      "inversedBy": "plan_history"
+      "inversedBy": "order_histories"
     },
     "member_display_limit": {
       "type": "integer",

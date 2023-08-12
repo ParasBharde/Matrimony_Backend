@@ -572,9 +572,9 @@
       "target": "plugin::users-permissions.user",
       "mappedBy": "user_profile"
     },
-    "plan_history": {
+    "order_histories": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::order-history.order-history",
       "mappedBy": "user_id"
     }

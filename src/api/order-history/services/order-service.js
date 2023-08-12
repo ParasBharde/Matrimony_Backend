@@ -1,3 +1,21 @@
+const updateSubscription = async (reqBody, ctx) => {
+    try{
+        let { userId, price, subscription_start_date, subscription_end_date } = data;
+        //start date should be less than end date
+        if(new Date(subscription_start_date) < new Date(subscription_end_date)) return ctx.throw(400, `Subscription start date should be less than end date`)
+        const getUserById = await strapi.query("api::profile.profile").findOne({where: {id: userId}})
+        if(!getUserById) return ctx.throw(404, `User not found`)
+        const getOrderById = await strapi.query("api::order-history.order-history").findOne({where: {user_id: userId}})
+        if(getOrderById) {
+            //check if subscription is active
+            if(getOrderById.status == "active") return ctx.throw(409, `Subscription is already active.`)
+        }
+    }
+    catch(e){
+        throw new Error(e)
+    }
+}
+
 const updateStatusOfMarriageFix = async (reqBody, ctx) => {
     try{
         const { order_id, marriage_fixed } = reqBody;
@@ -59,6 +77,7 @@ const increaseMemeberView = async (user_id, ctx) => {
     }
 }
 module.exports = {
+    updateSubscription,
     updateStatusOfMarriageFix,
     increaseMemeberView
 }

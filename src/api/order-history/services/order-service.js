@@ -1,24 +1,26 @@
 const updateStatusOfMarriageFix = async (reqBody, ctx) => {
     try{
-        const { order_id, marriage_fixed } = reqBody;
-        if(order_id && marriage_fixed) {
-            const getOrderById = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {order_id: order_id}})
-            if(!getOrderById) return ctx.throw(404, `Order not found`)
-            if(getOrderById.purchase_plan == "master") {
+        const { user_id, marriage_fixed } = reqBody;
+        if(user_id && marriage_fixed) {
+            const getOrderByUserId = await strapi.query("api::order-history.order-history").findOne({filters: {user_id: user_id}, orderBy: { createdAt: 'DESC' },})
+            if(!getOrderByUserId) return ctx.throw(404, `Order not found`)
+            const getPlanByUserId = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {order_id: getOrderByUserId.id}})
+            if(!getPlanByUserId) return ctx.throw(404, `No Subscription found`)
+            if(getPlanByUserId.purchase_plan == "master") {
                 return await strapi.entityService.update(
-                    "api::user-active-plan.user-active-plan", getOrderById.id,
+                    "api::user-active-plan.user-active-plan", getPlanByUserId.id,
                     {
                       data: {
                         marriage_fixed: marriage_fixed,
-                        status: (marriage_fixed == true) ? 'expired' : getOrderById.status,
-                        subscription_end_date: (marriage_fixed == true) ? new Date() : getOrderById.subscription_end_date,
+                        status: (marriage_fixed == true) ? 'expired' : getPlanByUserId.status,
+                        subscription_end_date: (marriage_fixed == true) ? new Date() : getPlanByUserId.subscription_end_date,
                       }
                     }
                 )
             }
             else {
                 return await strapi.entityService.update(
-                    "api::user-active-plan.user-active-plan", getOrderById.id,
+                    "api::user-active-plan.user-active-plan", getPlanByUserId.id,
                     {
                       data: {
                         marriage_fixed: marriage_fixed,
@@ -43,12 +45,19 @@ const increaseMemeberView = async (user_id, ctx) => {
             if(!getSubscriptionByUserId) return ctx.throw(404, `Order not found`)
             //check memeber view limit exceeded
             if(getSubscriptionByUserId.member_viewed >= getSubscriptionByUserId.member_display_limit) return ctx.throw(400, `Member view limit exceeded. Please upgrade your plan to view more members.`)
-            const updateView = await strapi.entityService.update(
+            await strapi.entityService.update(
                 "api::user-active-plan.user-active-plan", getSubscriptionByUserId.id,
                 {
                   data: {
-                    member_viewed: getSubscriptionByUserId.member_viewed + 1,
-                    total_profile_viewed: getSubscriptionByUserId.total_profile_viewed + 1,
+                    member_viewed: Number(getSubscriptionByUserId.member_viewed) + 1
+                  }
+                }
+            )
+            await strapi.entityService.update(
+                "api::profile.profile", getUserById.id,
+                {
+                  data: {
+                    total_profile_viewed: Number(getUserById.total_profile_viewed) + 1,
                   }
                 }
             )

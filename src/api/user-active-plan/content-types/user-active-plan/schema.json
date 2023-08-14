@@ -66,10 +66,6 @@
       ],
       "default": "not_applicable",
       "required": true
-    },
-    "total_profile_viewed": {
-      "type": "biginteger",
-      "default": "0"
     }
   }
 }

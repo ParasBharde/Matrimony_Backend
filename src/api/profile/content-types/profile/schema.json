@@ -571,6 +571,15 @@
       "relation": "oneToOne",
       "target": "plugin::users-permissions.user",
       "mappedBy": "user_profile"
+    },
+    "total_profile_viewed": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "default": "0"
     }
   }
 }

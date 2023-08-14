@@ -12,6 +12,7 @@ module.exports = {
         const ctx = strapi.requestContext.get();
 
         let { userId, price, subscription_start_date, subscription_end_date } = data;
+        if(!userId) return ctx.throw(400, `User id is required`)
         data.user_id = userId;
         //start date should be less than end date
         if(new Date(subscription_start_date) < new Date(subscription_end_date)) return ctx.throw(400, `Subscription start date should be less than end date`)

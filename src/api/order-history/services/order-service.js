@@ -38,35 +38,39 @@ const updateStatusOfMarriageFix = async (reqBody, ctx) => {
 
 const increaseMemeberView = async (user_id, ctx) => {
     try{
-        if(user_id) {
-            const getUserById = await strapi.query("api::profile.profile").findOne({where: {id: user_id}})
-            if(!getUserById) return ctx.throw(404, `User not found`)
-            const getSubscriptionByUserId = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {user_id: user_id}})
-            if(!getSubscriptionByUserId) return ctx.throw(404, `Order not found`)
-            //check memeber view limit exceeded
-            if(getSubscriptionByUserId.member_viewed >= getSubscriptionByUserId.member_display_limit) return ctx.throw(400, `Member view limit exceeded. Please upgrade your plan to view more members.`)
+      if(user_id) {
+          const getUserById = await strapi.query("api::profile.profile").findOne({where: {id: user_id}})
+          if(!getUserById) return ctx.throw(404, `User not found`)
+          const getSubscriptionByUserId = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {user_id: user_id}})
+          if(!getSubscriptionByUserId) return ctx.throw(404, `Order not found`)
+          //check memeber view limit exceeded
+          if(getSubscriptionByUserId.member_viewed <= getSubscriptionByUserId.member_display_limit) {
             await strapi.entityService.update(
-                "api::user-active-plan.user-active-plan", getSubscriptionByUserId.id,
-                {
-                  data: {
-                    member_viewed: Number(getSubscriptionByUserId.member_viewed) + 1
-                  }
+              "api::user-active-plan.user-active-plan", getSubscriptionByUserId.id,
+              {
+                data: {
+                  subscription_end_date: new Date(),
+                  status: 'expired',
+                  member_viewed: Number(getSubscriptionByUserId.member_viewed) + 1
                 }
+              }
             )
             await strapi.entityService.update(
-                "api::profile.profile", getUserById.id,
-                {
-                  data: {
-                    total_profile_viewed: Number(getUserById.total_profile_viewed) + 1,
-                  }
+              "api::profile.profile", getUserById.id,
+              {
+                data: {
+                  total_profile_viewed: Number(getUserById.total_profile_viewed) + 1,
                 }
+              }
             )
             return ctx.send({message: "success"})
-        }
+          }
+          else return ctx.throw(400, `Member view limit exceeded. Please upgrade your plan to view more members.`)
+      }
     }
-    catch(e){
-        throw new Error(e)
-    }
+  catch(e){
+    throw new Error(e)
+  }
 }
 module.exports = {
     updateStatusOfMarriageFix,

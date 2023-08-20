@@ -39,33 +39,42 @@ const updateStatusOfMarriageFix = async (reqBody, ctx) => {
 const increaseMemeberView = async (user_id, ctx) => {
     try{
       if(user_id) {
-          const getUserById = await strapi.query("api::profile.profile").findOne({where: {id: user_id}})
-          if(!getUserById) return ctx.throw(404, `User not found`)
-          const getSubscriptionByUserId = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {user_id: user_id}})
-          if(!getSubscriptionByUserId) return ctx.throw(404, `Order not found`)
-          //check memeber view limit exceeded
-          if(getSubscriptionByUserId.member_viewed <= getSubscriptionByUserId.member_display_limit) {
-            await strapi.entityService.update(
-              "api::user-active-plan.user-active-plan", getSubscriptionByUserId.id,
-              {
-                data: {
-                  subscription_end_date: new Date(),
-                  status: 'expired',
-                  member_viewed: Number(getSubscriptionByUserId.member_viewed) + 1
-                }
+        const getUserById = await strapi.query("api::profile.profile").findOne({where: {id: user_id}})
+        if(!getUserById) return ctx.throw(404, `User not found`)
+        const getSubscriptionByUserId = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {user_id: user_id}})
+        if(!getSubscriptionByUserId) return ctx.throw(404, `Order not found`)
+        //check memeber view limit exceeded
+        if(getSubscriptionByUserId.member_viewed > getSubscriptionByUserId.member_display_limit) return ctx.throw(400, `Member view limit exceeded. Please upgrade your plan to view more members.`)
+        else if(getSubscriptionByUserId.member_viewed == getSubscriptionByUserId.member_display_limit) {
+          await strapi.entityService.update(
+            "api::user-active-plan.user-active-plan", getSubscriptionByUserId.id,
+            {
+              data: {
+                subscription_end_date: new Date(),
+                status: 'expired'
               }
-            )
-            await strapi.entityService.update(
-              "api::profile.profile", getUserById.id,
-              {
-                data: {
-                  total_profile_viewed: Number(getUserById.total_profile_viewed) + 1,
-                }
+            }
+          )
+        }
+        else {
+          await strapi.entityService.update(
+            "api::user-active-plan.user-active-plan", getSubscriptionByUserId.id,
+            {
+              data: {
+                member_viewed: Number(getSubscriptionByUserId.member_viewed) + 1
               }
-            )
-            return ctx.send({message: "success"})
-          }
-          else return ctx.throw(400, `Member view limit exceeded. Please upgrade your plan to view more members.`)
+            }
+          )
+          await strapi.entityService.update(
+            "api::profile.profile", getUserById.id,
+            {
+              data: {
+                total_profile_viewed: Number(getUserById.total_profile_viewed) + 1,
+              }
+            }
+          )
+        }
+        return ctx.send({message: "success"})
       }
     }
   catch(e){

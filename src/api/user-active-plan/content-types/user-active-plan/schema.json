@@ -66,6 +66,11 @@
       ],
       "default": "not_applicable",
       "required": true
+    },
+    "viewed_member_ids": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::profile.profile"
     }
   }
 }

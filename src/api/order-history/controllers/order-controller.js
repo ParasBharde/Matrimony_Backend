@@ -12,7 +12,7 @@ module.exports = {
 
     async increaseMemeberView(ctx) {
       try {
-        return await increaseMemeberView(ctx.query.user_id, ctx)
+        return await increaseMemeberView(ctx.query.user_id, ctx.query.viewed_member_id, ctx)
       } catch (err) {
         ctx.badRequest(err);
       }

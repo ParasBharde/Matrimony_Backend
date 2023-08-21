@@ -44,14 +44,23 @@ const increaseMemeberView = async (user_id, ctx) => {
         const getSubscriptionByUserId = await strapi.query("api::user-active-plan.user-active-plan").findOne({where: {user_id: user_id}})
         if(!getSubscriptionByUserId) return ctx.throw(404, `Order not found`)
         //check memeber view limit exceeded
-        if(getSubscriptionByUserId.member_viewed > getSubscriptionByUserId.member_display_limit) return ctx.throw(400, `Member view limit exceeded. Please upgrade your plan to view more members.`)
-        else if(getSubscriptionByUserId.member_viewed == getSubscriptionByUserId.member_display_limit) {
+        if(getSubscriptionByUserId.member_viewed >= getSubscriptionByUserId.member_display_limit) return ctx.throw(400, `Member view limit exceeded. Please upgrade your plan to view more members.`)
+        else if(Number(getSubscriptionByUserId.member_viewed)+1 == Number(getSubscriptionByUserId.member_display_limit)) {
           await strapi.entityService.update(
             "api::user-active-plan.user-active-plan", getSubscriptionByUserId.id,
             {
               data: {
                 subscription_end_date: new Date(),
-                status: 'expired'
+                status: 'expired',
+                member_viewed: Number(getSubscriptionByUserId.member_viewed) + 1
+              }
+            }
+          )
+          await strapi.entityService.update(
+            "api::profile.profile", getUserById.id,
+            {
+              data: {
+                total_profile_viewed: Number(getUserById.total_profile_viewed) + 1,
               }
             }
           )

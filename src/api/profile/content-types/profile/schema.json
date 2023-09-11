@@ -580,6 +580,17 @@
       },
       "type": "biginteger",
       "default": "0"
+    },
+    "aadhar_number": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "biginteger",
+      "required": true,
+      "unique": true,
+      "min": "12"
     }
   }
 }

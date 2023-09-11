@@ -591,6 +591,20 @@
       "required": true,
       "unique": true,
       "min": "12"
+    },
+    "txr_certificate": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
     }
   }
 }

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2023-10-24T07:12:03.952Z"
+    "x-generation-date": "2024-02-14T12:22:40.214Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1204,7 +1204,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/AboutPage"
+                  "$ref": "#/components/schemas/AboutPageListResponseDataItemLocalized"
                 }
               }
             }
@@ -3724,7 +3724,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Contact"
+                  "$ref": "#/components/schemas/ContactListResponseDataItemLocalized"
                 }
               }
             }
@@ -5797,7 +5797,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/DownloadProfile"
+                  "$ref": "#/components/schemas/DownloadProfileListResponseDataItemLocalized"
                 }
               }
             }
@@ -7603,7 +7603,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Home"
+                  "$ref": "#/components/schemas/HomeListResponseDataItemLocalized"
                 }
               }
             }
@@ -9667,7 +9667,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/LikedProfile"
+                  "$ref": "#/components/schemas/LikedProfileListResponseDataItemLocalized"
                 }
               }
             }
@@ -12475,7 +12475,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/PricingPlan"
+                  "$ref": "#/components/schemas/PricingPlanListResponseDataItemLocalized"
                 }
               }
             }
@@ -16124,7 +16124,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/Profile"
+                  "$ref": "#/components/schemas/ProfileListResponseDataItemLocalized"
                 }
               }
             }
@@ -18329,7 +18329,7 @@
               "data": {
                 "type": "array",
                 "items": {
-                  "$ref": "#/components/schemas/ProfileImage"
+                  "$ref": "#/components/schemas/ProfileImageListResponseDataItemLocalized"
                 }
               }
             }

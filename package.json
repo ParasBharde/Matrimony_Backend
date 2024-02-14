@@ -15,7 +15,7 @@
     "@strapi/plugin-users-permissions": "4.6.0",
     "@strapi/provider-email-sendgrid": "^4.7.1",
     "@strapi/strapi": "4.6.0",
-    "better-sqlite3": "7.4.6",
+    "better-sqlite3": "^7.4.6",
     "mysql": "^2.18.1",
     "node-cron": "^3.0.2",
     "sib-api-v3-sdk": "^8.5.0",
